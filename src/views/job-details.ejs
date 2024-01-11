@@ -19,8 +19,14 @@
     <i class="fa-solid fa-signal"></i>Number of Openings <%= job.openings %>
   </p>
   <p>
+    <% if(userEmail) { %>
+    <a href="/jobs/<%= job.id %>/applicants"
+      ><i class="fa-solid fa-user-group"></i>Applicants <%=
+      job.applicants.length %></a
+    >
+    <% }else{ %>
     <i class="fa-solid fa-user-group"></i>Applicants <%= job.applicants.length
-    %>
+    %> <% } %>
   </p>
   <div class="job-details-skill-container">
     <% job.skillsRequired.map((skill, ind) => { %>

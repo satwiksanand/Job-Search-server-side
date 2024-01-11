@@ -1,0 +1,32 @@
+<!--! somehow the link starts with /jobs which messes with my address, i will fix this tomorrow, and will also apply some styles. -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Resume</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <% applicants.map((applicant, ind) => { %>
+
+    <tr>
+      <th scope="row"><%= ind %></th>
+      <td><%= applicant.name %></td>
+      <td><%= applicant.email %></td>
+      <td><%= applicant.contact %></td>
+      <td>
+        <a
+          href="<%= applicant.resumePath %>"
+          target="_blank"
+          class="applicant-listing-btn"
+          >Resume</a
+        >
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

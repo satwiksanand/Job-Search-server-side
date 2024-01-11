@@ -88,18 +88,12 @@ export default class JobsModel {
   }
 
   //?adding a new applicant to the job;
-  static addApplicant(jobId, { name, email, contact, path }) {
+  static addApplicant(jobId, name, email, contact, resumePath) {
     //?i will find the specific job and the id for the last applicant.
     jobs.map((job, ind) => {
       if (job.id == jobId) {
         job.applicants.push(
-          new ApplicantModel(
-            job.applicants.length + 1,
-            name,
-            email,
-            contact,
-            path
-          )
+          new ApplicantModel(name, email, contact, resumePath)
         );
       }
     });
