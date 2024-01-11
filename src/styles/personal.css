@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/** css for the landing page */
+
+/* .container {
+  width: 100vw;
+  height: 100vh;
+  background-color: darkblue;
+} */
+
+.landing-page {
+  background-color: blueviolet;
+  min-height: 100vh;
+}
+
+.landing-page h1 {
+  color: darkblue;
+}
+
+.landing-page > div {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.landing-page img {
+  background-color: transparent;
+  mix-blend-mode: color-burn;
+  object-fit: cover;
+  display: block;
+}
+
+.landing-page {
+  display: flex;
+}
+
+.register-form,
+.login-form {
+  width: 40%;
+  min-width: 400px;
+}
+
+.register {
+  padding: 10px 20px;
+  background-color: magenta;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.register:hover {
+  background-color: darkmagenta;
+  color: white;
+}
+
+/*^ css for the anchor tag to look like a button. */
+
+.btn-like {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: magenta;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-like:hover {
+  background-color: darkmagenta;
+  color: white;
+}
+
+.btn-login {
+  padding: 10px 20px;
+  background-color: rgb(206, 22, 234);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/*^ css for the joblisting page */
+.job-listing {
+  background-color: rgb(0, 0, 96);
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.job-item {
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: inherit;
+  width: 30%;
+  padding: 10px;
+  max-width: 300px;
+}
+
+.job-item p > span {
+  color: rgb(55, 109, 246);
+}
+
+.job-item p > span:hover {
+  color: white;
+}
+
+.job-item p:not(.job-item-name) {
+  color: white;
+}
+
+.job-item-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: orange;
+}
+
+.job-item-skill {
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+  color: rgb(55, 109, 246);
+  padding: 10px;
+  transform: 0.3s;
+}
+
+.job-item-skill:hover {
+  color: white;
+  background-color: rgb(55, 109, 246);
+  cursor: pointer;
+}
+
+.job-item div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.job-item-link {
+  border: none;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+  background-color: rgb(17, 123, 194);
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.job-item-link > span {
+  margin-left: 10px;
+}
+
+.job-item-link-details {
+  border: 1px solid green;
+  color: green;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transform: 0.5s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.job-item-link-details:hover {
+  color: white;
+  background-color: green;
+}
+
+/** css for the job details page */
+.job-details {
+  border: 1px solid black;
+  padding: 40px;
+  margin: 20px;
+  min-height: 100vh;
+}
+
+.job-details h1 > span:first-of-type {
+  color: red;
+}
+
+.job-details h1 {
+  color: green;
+  margin: auto;
+  text-align: center;
+}
+
+.job-details h1 > span:last-of-type {
+  color: orange;
+}
+
+.job-details-skill-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.job-details-skill {
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+  color: rgb(55, 109, 246);
+  padding: 10px;
+  transform: 0.3s;
+}
+
+.job-details-skill:hover {
+  color: white;
+  background-color: rgb(55, 109, 246);
+  cursor: pointer;
+}
+
+.job-details-apply {
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: white;
+  background-color: rgb(12, 78, 245);
+}
+
+i {
+  margin-right: 10px;
+}
+
+/** css for the modal form */
+.overlay {
+  width: 100vw;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalForm {
+  z-index: 10;
+  position: absolute;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+/** css for the update form */
+.update-form {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-form form {
+  width: 60%;
+  max-width: 600px;
+}
+
+.update-form h1 {
+  text-align: center;
+  font-weight: 600;
+  color: maroon;
+}
+
+.btn-submit-personal {
+  width: 100%;
+  color: white;
+  background-color: green;
+  padding: 10px;
+  border-radius: 5px;
+}

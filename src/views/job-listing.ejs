@@ -1,0 +1,21 @@
+<div class="job-listing">
+  <% jobs.map((job, ind) => { %>
+  <div class="job-item">
+    <a href="/jobs/<%= job.id %>" class="job-item-link"
+      >Actively Hiring<span></span>&#128279;</a
+    >
+    <p class="job-item-name"><%= job.companyName %></p>
+    <p><%= job.jobCategory %>: <span><%= job.jobDesignation %></span></p>
+    <p>
+      <i class="fa-solid fa-location-dot"></i>Location: <%= job.jobLocation %>
+    </p>
+    <p><i class="fa-solid fa-indian-rupee-sign"></i><%= job.salary %></p>
+    <div>
+      <% job.skillsRequired.map((skill, ind) => { %>
+      <span class="job-item-skill"><%= skill %></span>
+      <% }) %>
+    </div>
+    <a href="/jobs/<%= job.id %>" class="job-item-link-details">View Details</a>
+  </div>
+  <% }) %>
+</div>

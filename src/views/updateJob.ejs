@@ -1,0 +1,137 @@
+<div class="update-form">
+  <h1>UPDATE FORM</h1>
+  <form action="/jobs/<%= job.id %>/update" method="post">
+    <div class="mb-3">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="jobCategory"
+      >
+        <option selected>select the Job type</option>
+        <option value="Tech">Tech</option>
+        <option value="Non-Tech">Non-Tech</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="jobRole"
+        value="<%= job.jobDesignation %>"
+        name="jobDesignation"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="jobLocation">Job Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="jobLocation"
+        value="<%= job.jobLocation %>"
+        name="jobLocation"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="companyName">Company Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="companyName"
+        value="<%= job.companyName %>"
+        name="companyName"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="salary">Salary</label>
+      <input
+        type="text"
+        class="form-control"
+        id="salary"
+        value="<%= job.salary %>"
+        name="salary"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="openings">Total Positions</label>
+      <input
+        type="text"
+        class="form-control"
+        id="openings"
+        value="<%= job.openings %>"
+        name="openings"
+      />
+    </div>
+    Select the Skills requirement from the applicant
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="React"
+        id="skillsRequired"
+        name="skillsRequired"
+      />
+      <label class="form-check-label" for="skillsRequired"> React </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="PHP"
+        id="skillsRequired"
+        name="skillsRequired"
+      />
+      <label class="form-check-label" for="skillsRequired"> PHP </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="HTML"
+        id="skillsRequired"
+        name="skillsRequired"
+      />
+      <label class="form-check-label" for="skillsRequired"> HTML </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="NodeJs"
+        id="skillsRequired"
+        name="skillsRequired"
+      />
+      <label class="form-check-label" for="skillsRequired"> NodeJs </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="Angular"
+        id="skillsRequired"
+        name="skillsRequired"
+      />
+      <label class="form-check-label" for="skillsRequired"> Angular </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="MongoDB"
+        id="skillsRequired"
+        name="skillsRequired"
+      />
+      <label class="form-check-label" for="skillsRequired"> MongoDB </label>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="applyBy">Apply By:</label>
+      <input
+        type="date"
+        class="form-control"
+        id="applyBy"
+        value="<%= job.applyBy %>"
+        name="applyBy"
+      />
+    </div>
+    <button type="submit" class="btn-submit-personal">Submit</button>
+  </form>
+</div>
