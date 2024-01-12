@@ -8,6 +8,7 @@ import session from "express-session";
 import UserController from "./src/controller/user.controller.js";
 import auth from "./src/middleware/authorization.middleware.js";
 import SendEmailEasily from "./src/middleware/send-mail.middleware.js";
+import { setLastVisit } from "./src/middleware/lastVisit.middleware.js";
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(
 );
 //? this line here is important to basically access the date sent on submitting the form.
 app.use(express.urlencoded({ extended: true }));
+app.use(setLastVisit);
 
 //?creating the instances;
 const jobsController = new JobsController();
