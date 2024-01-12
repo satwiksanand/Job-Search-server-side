@@ -42,7 +42,6 @@
               <!--$ the jobs segment is to be determined.  -->
               <a class="nav-link" href="/jobs">Jobs</a>
             </li>
-            <% if(userEmail) { %>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -54,16 +53,21 @@
                 You
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Post new Job</a></li>
+                <li>
+                  <a class="dropdown-item" href="/postJob">Post new Job</a>
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
+                  <% if(userEmail) { %>
                   <form action="/logout" method="post">
                     <button class="dropdown-item">Log Out</button>
                   </form>
+                  <% }else{ %>
+                  <a class="dropdown-item" href="/login">Log In</a>
+                  <% } %>
                 </li>
               </ul>
             </li>
-            <% } %>
           </ul>
           <form class="d-flex" role="search">
             <input

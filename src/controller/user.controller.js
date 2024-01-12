@@ -9,7 +9,7 @@ export default class UserController {
     const { name, email, password } = req.body;
     UserModel.addUser({ name, email, password });
     //? i am not rendering anything for now.
-    res.redirect("/");
+    res.redirect("/login");
   }
 
   login(req, res) {

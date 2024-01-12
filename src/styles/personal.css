@@ -3,21 +3,105 @@
   padding: 0;
 }
 
+/*! css provided */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+body,
+html {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.pink {
+  color: #ff2c90;
+}
+.bold {
+  font-weight: bold;
+}
+.container-lpage {
+  background-color: #181642;
+  height: 100vh;
+}
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+.lbtn {
+  background-color: #ff2c90;
+  color: #ffffff;
+}
+.lbtn:hover {
+  background-color: #da096a;
+  color: #ffffff;
+}
+.main-heading {
+  color: #ff2c90;
+  font-weight: bolder;
+  font-size: 2.5em;
+}
+
+#mynav {
+  background-color: #181642 !important;
+  color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 1px 10px;
+}
+.modal-footer i {
+  font-size: 22px;
+  margin: 0 2px;
+}
+.form-group i {
+  font-size: 20px;
+  margin-right: 2px;
+  margin-bottom: 1px;
+}
+.form-group label {
+  margin-bottom: 3px;
+}
+.hiring-btn {
+  margin-top: -1px;
+}
+.fw-bold {
+  font-weight: bold;
+}
+.skills {
+  margin: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.form-box {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top: 5px solid #181642;
+  border-left: 3px solid #181642;
+  border-radius: 10px;
+}
+.card-header {
+  gap: 5px;
+}
+.bg-theme {
+  background-color: #0e0d23;
+  color: white;
+}
+
 /** css for the landing page */
 
-/* .container {
-  width: 100vw;
-  height: 100vh;
-  background-color: darkblue;
-} */
-
 .landing-page {
-  background-color: blueviolet;
+  background-color: #181642;
   min-height: 100vh;
 }
 
-.landing-page h1 {
-  color: darkblue;
+.landing-page h1,
+.landing-page h3,
+.landing-page > div > p {
+  color: #ff2c90;
 }
 
 .landing-page > div {
@@ -31,7 +115,6 @@
 
 .landing-page img {
   background-color: transparent;
-  mix-blend-mode: color-burn;
   object-fit: cover;
   display: block;
 }
@@ -48,7 +131,7 @@
 
 .register {
   padding: 10px 20px;
-  background-color: magenta;
+  background-color: #ff2c90;
   color: black;
   border-radius: 5px;
   border: none;
@@ -56,7 +139,7 @@
 }
 
 .register:hover {
-  background-color: darkmagenta;
+  background-color: #ff0278;
   color: white;
 }
 
@@ -65,7 +148,7 @@
 .btn-like {
   display: inline-block;
   padding: 10px 20px;
-  background-color: magenta;
+  background-color: #ff2c90;
   color: black;
   text-decoration: none;
   border-radius: 5px;
@@ -74,7 +157,7 @@
 }
 
 .btn-like:hover {
-  background-color: darkmagenta;
+  background-color: #ff0278;
   color: white;
 }
 
@@ -268,20 +351,23 @@ i {
   justify-content: space-between;
 }
 
-/** css for the update form */
-.update-form {
+/** css for the update form and the new job form */
+.update-form,
+.add-new-job {
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.update-form form {
+.update-form form,
+.add-new-job form {
   width: 60%;
   max-width: 600px;
 }
 
-.update-form h1 {
+.update-form h1,
+.add-new-job h1 {
   text-align: center;
   font-weight: 600;
   color: maroon;
@@ -309,4 +395,36 @@ i {
 .applicant-listing-btn:hover {
   background-color: rgb(53, 53, 233);
   color: white;
+}
+
+/** css for the error page */
+.error-box {
+  min-height: 96vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/** css for applicant-details button */
+.applicant-label {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.applicant-resume-btn {
+  text-decoration: none;
+  width: 100%;
+  display: inline-block;
+  background-color: #ff2c90;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
 }

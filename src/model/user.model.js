@@ -1,8 +1,8 @@
 //!this is model and not a middleware so the function inside the class will not have request and the response object.
-
+import { v4 as uuidv4 } from "uuid";
 export default class UserModel {
   constructor(_name, _email, _password) {
-    this.id = Date.now();
+    this.id = uuidv4();
     this.name = _name;
     this.email = _email;
     this.password = _password;

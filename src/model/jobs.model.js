@@ -31,30 +31,31 @@ export default class JobsModel {
   }
 
   //?function for creating a new job;
-  static addJob({
-    _jobcategory,
-    _jobdesignation,
-    _joblocation,
-    _companyname,
-    _salary,
-    _applyby,
-    _skills,
-    _openings,
-    _jobposted,
-    _applicants = [],
-  }) {
-    const newJob = new JobsModel({
-      _jobcategory,
-      _jobdesignation,
-      _joblocation,
-      _companyname,
-      _salary,
-      _applyby,
-      _skills,
-      _openings,
-      _jobposted,
-      _applicants,
-    });
+  static addJob(
+    jobCategory,
+    jobDesignation,
+    jobLocation,
+    companyName,
+    salary,
+    applyBy,
+    skillsRequired,
+    openings,
+    jobPosted,
+    applicants = []
+  ) {
+    const newJob = new JobsModel(
+      false,
+      jobCategory,
+      jobDesignation,
+      jobLocation,
+      companyName,
+      salary,
+      applyBy,
+      skillsRequired,
+      openings,
+      jobPosted,
+      applicants
+    );
     jobs.push(newJob);
   }
 

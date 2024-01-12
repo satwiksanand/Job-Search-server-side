@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import UserController from "./src/controller/user.controller.js";
 import auth from "./src/middleware/authorization.middleware.js";
+import SendEmailEasily from "./src/middleware/send-mail.middleware.js";
 
 const app = express();
 
@@ -36,19 +37,24 @@ const jobsController = new JobsController();
 const userController = new UserController();
 
 //^ Auth Routes;
-//todo we will be coming back to the authorization routes later.
+//! all okay here
 app.get("/", jobsController.getLanding);
+app.get("/login", jobsController.getLogin);
 app.post("/login", userController.login);
-app.post("/register", userController.registerUser);
+app.post("/register", SendEmailEasily, userController.registerUser);
 app.post("/logout", userController.logout);
 
 //^ jobs routes
 app.get("/jobs", jobsController.getJobs);
+app.get("/postJob", auth, jobsController.getNewJob);
+app.post("/jobs", auth, jobsController.createJobs);
 app.get("/jobs/:id/", jobsController.getSpecificJob);
+app.put("/jobs/:id", auth, jobsController.updateJobs);
+app.delete("/jobs/:id", auth, jobsController.deleteJobs);
 
 //^ applying to a specific job listing.
 app.post(
-  "/jobs/apply/:id",
+  "/apply/:id",
   uploadFile.single("resume"),
   jobsController.postApplicant
 );
@@ -63,6 +69,15 @@ app.get("/jobs/:id/delete", auth, jobsController.deleteJobs);
 //^ routes for managing the applicants for a job.
 app.get("/jobs/:id/applicants", auth, jobsController.getJobApplicants);
 app.post("/jobs/:id/applicants", auth, jobsController.postApplicant);
+//todo these three routes.
+
+//! haven't applied the correct route plus i don't know how to make a put or delete request right now.
+app.get("/jobs/:id/applicants/:appId", auth, jobsController.getApplicant);
+app.put("/jobs/:id/applicants/:appId", auth, jobsController.getApplicant);
+app.delete("/jobs/:id/applicants/:appId", auth, jobsController.getApplicant);
+
+//^ routes to render the error page.
+app.get("/404", jobsController.getErrorPage);
 
 //^ started listening the server.
 app.listen(3200, () => {
