@@ -1,7 +1,6 @@
-import express, { urlencoded } from "express";
+import express from "express";
 import EjsLayouts from "express-ejs-layouts";
 import path from "path";
-import ProductController from "./src/controller/product.controller.js";
 import JobsController from "./src/controller/jobs.controller.js";
 import { uploadFile } from "./src/middleware/resume-upload.middleware.js";
 import cookieParser from "cookie-parser";

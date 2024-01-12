@@ -2,17 +2,25 @@ import JobsModel from "../model/jobs.model.js";
 
 export default class JobsController {
   getLanding(req, res) {
-    res.render("landingPage");
+    res.render("landingPage", {
+      userEmail: req.session.userEmail ? req.session.userEmail : false,
+    });
   }
 
   getUpdateForm(req, res) {
     const job = JobsModel.findJob(req.params.id);
-    res.render("updateJob", { job: job });
+    res.render("updateJob", {
+      job: job,
+      userEmail: req.session.userEmail ? req.session.userEmail : false,
+    });
   }
 
   getJobs(req, res) {
     const jobs = JobsModel.getAllJobs();
-    res.render("job-listing", { jobs: jobs });
+    res.render("job-listing", {
+      jobs: jobs,
+      userEmail: req.session.userEmail ? req.session.userEmail : false,
+    });
   }
 
   getSpecificJob(req, res) {
@@ -28,7 +36,6 @@ export default class JobsController {
     const { name, email, contact } = req.body;
     const resumePath = "resumes/" + req.file.filename;
     const id = req.params.id;
-    console.log(name, email, contact, resumePath, id);
     JobsModel.addApplicant(id, name, email, contact, resumePath);
     res.redirect("/jobs");
   }
@@ -48,8 +55,11 @@ export default class JobsController {
 
   getJobApplicants(req, res) {
     const job = JobsModel.findJob(req.params.id);
-    console.log(job);
-    res.render("applicant-listing", { applicants: job.applicants, id: job.id });
+    res.render("applicant-listing", {
+      applicants: job.applicants,
+      id: job.id,
+      userEmail: req.session.userEmail ? req.session.userEmail : false,
+    });
   }
 
   manageJobs(req, res) {}

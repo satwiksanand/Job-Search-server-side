@@ -231,6 +231,11 @@
   background-color: rgb(12, 78, 245);
 }
 
+.applicants-btn {
+  text-decoration: none;
+  color: red;
+}
+
 i {
   margin-right: 10px;
 }
@@ -288,4 +293,20 @@ i {
   background-color: green;
   padding: 10px;
   border-radius: 5px;
+}
+
+/** css for the applicant page */
+.applicant-listing-btn {
+  display: inline-block;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: rgb(53, 53, 233);
+  border: 1px solid rgb(53, 53, 233);
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.applicant-listing-btn:hover {
+  background-color: rgb(53, 53, 233);
+  color: white;
 }

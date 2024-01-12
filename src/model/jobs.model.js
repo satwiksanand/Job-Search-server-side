@@ -1,4 +1,7 @@
 import ApplicantModel from "./applicant.model.js";
+import { v4 as uuidv4 } from "uuid";
+
+//todo during the first rendering both the jobs element are rendered almost instantly so they get the same id which prevents the second element display page to not load properly.
 
 export default class JobsModel {
   constructor(
@@ -14,7 +17,7 @@ export default class JobsModel {
     _jobposted,
     _applicants = []
   ) {
-    this.id = _id ? _id : Date.now();
+    this.id = _id ? _id : uuidv4();
     this.jobCategory = _jobcategory;
     this.jobDesignation = _jobdesignation;
     this.jobLocation = _joblocation;
@@ -116,7 +119,7 @@ export default class JobsModel {
 
 const jobs = [
   new JobsModel(
-    false,
+    1,
     "Tech",
     "SDE",
     "Indore",
@@ -129,7 +132,7 @@ const jobs = [
     []
   ),
   new JobsModel(
-    false,
+    2,
     "Tech",
     "FrontEnd Developer",
     "Surat",
@@ -139,6 +142,19 @@ const jobs = [
     ["React", "Nodejs", "MongoDB", "Express", "HTML"],
     21,
     0,
-    []
+    [
+      new ApplicantModel(
+        "Robert Cooper",
+        "robert@gmail.com",
+        "1234512345",
+        "resumes/1705031444445-1705031249239-New-York-Resume-Template-Creative.pdf"
+      ),
+      new ApplicantModel(
+        "Satwik Sanand",
+        "sattu@gmail.com",
+        "1234567891",
+        "resumes/1705031590092-1705031475814-New-York-Resume-Template-Creative.pdf"
+      ),
+    ]
   ),
 ];
