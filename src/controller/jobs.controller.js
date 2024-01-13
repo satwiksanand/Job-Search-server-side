@@ -82,8 +82,11 @@ export default class JobsController {
     res.redirect("/jobs");
   }
 
+  //!here is some issues with the update job functionalities.
+
   updateJobs(req, res) {
     //?we will be receiving some of the data's from the form using the method post.
+    console.log(req.body);
     JobsModel.updateJob(req.params.id, req.body);
     res.redirect(`/jobs/${req.params.id}`);
   }

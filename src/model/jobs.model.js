@@ -73,10 +73,11 @@ export default class JobsModel {
   //todo incomplete becuase i don't know the fields that will change when updating a particular job.
   static updateJob(id, newData) {
     //? here we will find and update the contents of the job in question.
+    const job = JobsModel.findJob(id);
     JobsModel.deleteJob(id);
     jobs.push(
       new JobsModel(
-        newData.id,
+        id,
         newData.jobCategory,
         newData.jobDesignation,
         newData.jobLocation,
@@ -85,8 +86,8 @@ export default class JobsModel {
         newData.applyBy,
         newData.skillsRequired,
         newData.openings,
-        newData.jobPosted,
-        newData.applicants
+        job.jobPosted,
+        job.applicants
       )
     );
   }
@@ -143,19 +144,6 @@ const jobs = [
     ["React", "Nodejs", "MongoDB", "Express", "HTML"],
     21,
     0,
-    [
-      new ApplicantModel(
-        "Robert Cooper",
-        "robert@gmail.com",
-        "1234512345",
-        "resumes/1705031444445-1705031249239-New-York-Resume-Template-Creative.pdf"
-      ),
-      new ApplicantModel(
-        "Satwik Sanand",
-        "sattu@gmail.com",
-        "1234567891",
-        "resumes/1705031590092-1705031475814-New-York-Resume-Template-Creative.pdf"
-      ),
-    ]
+    []
   ),
 ];

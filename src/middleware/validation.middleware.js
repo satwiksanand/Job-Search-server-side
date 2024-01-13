@@ -31,11 +31,11 @@ export const validateData = async (req, res, next) => {
   console.log(errors);
 
   if (!errors.isEmpty()) {
-    res.render("newJob", {
+    return res.render("newJob", {
       userEmail: req.session.userEmail ? req.session.userEmail : null,
       errors: errors.array()[0].msg,
     });
+  } else {
+    next();
   }
-
-  next();
 };
