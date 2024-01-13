@@ -1,3 +1,4 @@
+import ApplicantModel from "../model/applicant.model.js";
 import JobsModel from "../model/jobs.model.js";
 
 export default class JobsController {
@@ -63,6 +64,8 @@ export default class JobsController {
 
     if (!Array.isArray(skillsRequired)) {
       skillsArray = [skillsRequired];
+    } else {
+      skillsArray = [...skillsRequired];
     }
 
     JobsModel.addJob(
@@ -106,6 +109,7 @@ export default class JobsController {
   getNewJob(req, res) {
     res.render("newJob", {
       userEmail: req.session.userEmail ? req.session.userEmail : null,
+      errors: null,
     });
   }
 
@@ -122,6 +126,39 @@ export default class JobsController {
     } else {
       res.redirect("/404");
     }
+  }
+
+  updateApplicant(req, res) {
+    const jobId = req.params.id;
+    const appId = req.params.appId;
+    //?let us say that the request body contains the new data of the applicant, obviously the id will remain same.
+    const { name, email, contact } = req.body;
+    const job = JobsModel.findJob(jobId);
+    const oldApplicant = job.applicants.find((app) => app.id == appId);
+    const newApplicant = new ApplicantModel(
+      name,
+      email,
+      contact,
+      oldApplicant.resumePath,
+      appId
+    );
+    job.applicants = job.applicants.filter(
+      (applicant) => applicant.id != appId
+    );
+    job.applicants.push(newApplicant);
+    JobsModel.updateJob(jobId, job);
+    res.redirect("/jobs");
+  }
+
+  deleteApplicant(req, res) {
+    const jobId = req.params.id;
+    const appId = req.params.appId;
+    const job = JobsModel.findJob(jobId);
+    job.applicants = job.applicants.filter(
+      (applicant) => applicant.id != appId
+    );
+    JobsModel.updateJob(jobId, job);
+    res.redirect("/jobs");
   }
 
   getErrorPage(req, res) {

@@ -17,7 +17,7 @@ const SendEmailEasily = async (req, res, next) => {
     from: "sanandsatwik421@gmail.com",
     to: `${email}`,
     subject: "Welcome to Easily!",
-    text: `Welcome ${name} to the Easily Family, apply to jobs and internship in a easy way!`,
+    text: `Welcome ${name} to the Easily Family, apply to jobs and internship in a easy way!\nYour application was successfull`,
   };
 
   //sending the mail
